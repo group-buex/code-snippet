@@ -13,20 +13,29 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
   try {
-    const { serverRuntimeConfig } = getConfig();
+    // const { serverRuntimeConfig } = getConfig();
     const dirRelativeToPublicFolder = "snippets";
-    const root = process.env.PROJECT_ROOT as string;
+    // const root = process.env.PROJECT_ROOT as string;
 
-    console.log(
-      "---",
-      path.resolve(__dirname),
-      __dirname,
-      root,
-      serverRuntimeConfig.PROJECT_ROOT,
-      serverRuntimeConfig.PROJECT_ROOT2
-    );
-    const dir = path.join(".", "./static", dirRelativeToPublicFolder);
+    // console.log(
+    //   "---",
+    //   path.resolve(__dirname),
+    //   __dirname,
+    //   root,
+    //   serverRuntimeConfig.PROJECT_ROOT,
+    //   serverRuntimeConfig.PROJECT_ROOT2
+    // );
+    // const dir = path.join(process.cwd(), "./static", dirRelativeToPublicFolder);
+    // const filenames = fs.readdirSync(dir);
+
+    const dir = path.resolve("./static", dirRelativeToPublicFolder);
     const filenames = fs.readdirSync(dir);
+
+    const files = filenames.map((name) =>
+      path.join("/", dirRelativeToPublicFolder, name)
+    );
+    console.log("+++", filenames);
+    console.log("----", files);
 
     res.status(200).json({ filenames });
   } catch (error) {
