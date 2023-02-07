@@ -15,10 +15,10 @@ export default function handler(
   try {
     const { serverRuntimeConfig } = getConfig();
 
-    const dirRelativeToPublicFolder = "bash";
+    const dirRelativeToPublicFolder = serverRuntimeConfig.PUBLIC_FOLDER;
     const dir = path.join(
       serverRuntimeConfig.PROJECT_ROOT || __dirname,
-      "./install",
+      "./public",
       dirRelativeToPublicFolder
     );
     const filenames = fs.readdirSync(dir);

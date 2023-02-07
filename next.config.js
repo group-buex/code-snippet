@@ -60,6 +60,7 @@ const nextConfig = {
   },
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname,
+    PUBLIC_FOLDER: "snippets",
   },
   async headers() {
     return [

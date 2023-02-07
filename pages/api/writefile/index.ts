@@ -14,10 +14,10 @@ export default function handler(
     const { prevFilename, filename, content } = req.body;
     const { serverRuntimeConfig } = getConfig();
 
-    const dirRelativeToPublicFolder = "bash";
+    const dirRelativeToPublicFolder = serverRuntimeConfig.PUBLIC_FOLDER;
     const dir = path.join(
       serverRuntimeConfig.PROJECT_ROOT || __dirname,
-      "./install",
+      "./public",
       dirRelativeToPublicFolder
     );
 
