@@ -59,8 +59,8 @@ const nextConfig = {
     ],
   },
   serverRuntimeConfig: {
-    // PROJECT_ROOT: __dirname,
-    PROJECT_ROOT: process.cwd(),
+    PROJECT_ROOT: __dirname,
+    PROJECT_ROOT2: process.cwd(),
     PUBLIC_FOLDER: "snippets",
   },
   async headers() {
