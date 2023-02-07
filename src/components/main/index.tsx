@@ -19,8 +19,9 @@ const Main = () => {
 
     if (response?.status === 200 && response?.data?.filenames?.length > 0) {
       setFilenameList(response?.data?.filenames);
-      setLoading(false);
     }
+
+    setLoading(false);
   };
 
   return (

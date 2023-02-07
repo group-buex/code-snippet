@@ -24,6 +24,7 @@ const FileList: React.FC<FileListProps> = ({ loading }) => {
     }
   };
 
+  console.log(filenameList?.length);
   return (
     <div className="border-2 border-r-0 gap-2 rounded-l-lg min-w-[320px] h-full overflow-y-auto">
       <SearchInput />
@@ -38,7 +39,7 @@ const FileList: React.FC<FileListProps> = ({ loading }) => {
             <span className="sr-only">Loading...</span>
           </div>
         ) : filenameList?.length === 0 ? (
-          <div>df</div>
+          <div>None</div>
         ) : (
           filenameList
             ?.filter((item) => item.includes(searchFilename))

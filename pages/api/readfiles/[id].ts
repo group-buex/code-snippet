@@ -2,7 +2,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 import path from "path";
-import getConfig from "next/config";
 
 type Data = {
   filename: string;
@@ -16,8 +15,9 @@ export default function handler(
   try {
     const id = req.query.id as string;
 
-    const dirRelativeToPublicFolder = "snippets";
-    const dir = path.join(__dirname, "./static", dirRelativeToPublicFolder);
+    const dirRelativeToPublicFolder = process.env.PUBLIC_FOLDER as string;
+    const dir = path.resolve("./static", dirRelativeToPublicFolder);
+
     const fileDir = `${dir}/${id}`;
     const text = fs.readFileSync(fileDir, "utf8");
 
