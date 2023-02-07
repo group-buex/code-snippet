@@ -17,7 +17,7 @@ export default function handler(
     const id = req.query.id as string;
 
     const dirRelativeToPublicFolder = "snippets";
-    const dir = path.join(__dirname, "./public", dirRelativeToPublicFolder);
+    const dir = path.join(__dirname, "./static", dirRelativeToPublicFolder);
     const fileDir = `${dir}/${id}`;
     const text = fs.readFileSync(fileDir, "utf8");
 

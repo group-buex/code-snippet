@@ -16,7 +16,7 @@ export default function handler(
     const { serverRuntimeConfig } = getConfig();
     const dirRelativeToPublicFolder = "snippets";
     const root = serverRuntimeConfig.PROJECT_ROOT;
-    const dir = path.join(root, "./public", dirRelativeToPublicFolder);
+    const dir = path.join(root, "./static", dirRelativeToPublicFolder);
     const filenames = fs.readdirSync(dir);
 
     res.status(200).json({ filenames });

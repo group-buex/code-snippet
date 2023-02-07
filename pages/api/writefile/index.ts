@@ -14,7 +14,7 @@ export default function handler(
     const { prevFilename, filename, content } = req.body;
 
     const dirRelativeToPublicFolder = "snippets";
-    const dir = path.join(__dirname, "./public", dirRelativeToPublicFolder);
+    const dir = path.join(__dirname, "./static", dirRelativeToPublicFolder);
 
     const fileDir = `${dir}/${prevFilename}`;
     const newFileDir = `${dir}/${filename}`;
