@@ -15,14 +15,9 @@ export default function handler(
 ) {
   try {
     const id = req.query.id as string;
-    const { serverRuntimeConfig } = getConfig();
 
-    const dirRelativeToPublicFolder = serverRuntimeConfig.PUBLIC_FOLDER;
-    const dir = path.join(
-      serverRuntimeConfig.PROJECT_ROOT || __dirname,
-      "./public",
-      dirRelativeToPublicFolder
-    );
+    const dirRelativeToPublicFolder = "snippets";
+    const dir = path.join(__dirname, "./public", dirRelativeToPublicFolder);
     const fileDir = `${dir}/${id}`;
     const text = fs.readFileSync(fileDir, "utf8");
 

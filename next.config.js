@@ -58,10 +58,6 @@ const nextConfig = {
       { loader: "@next/font/google", options: { subsets: ["latin"] } },
     ],
   },
-  serverRuntimeConfig: {
-    PROJECT_ROOT: __dirname,
-    PUBLIC_FOLDER: "snippets",
-  },
   async headers() {
     return [
       {

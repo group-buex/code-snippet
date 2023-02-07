@@ -12,14 +12,9 @@ export default function handler(
 ) {
   try {
     const { prevFilename, filename, content } = req.body;
-    const { serverRuntimeConfig } = getConfig();
 
-    const dirRelativeToPublicFolder = serverRuntimeConfig.PUBLIC_FOLDER;
-    const dir = path.join(
-      serverRuntimeConfig.PROJECT_ROOT || __dirname,
-      "./public",
-      dirRelativeToPublicFolder
-    );
+    const dirRelativeToPublicFolder = "snippets";
+    const dir = path.join(__dirname, "./public", dirRelativeToPublicFolder);
 
     const fileDir = `${dir}/${prevFilename}`;
     const newFileDir = `${dir}/${filename}`;

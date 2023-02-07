@@ -13,14 +13,8 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
   try {
-    const { serverRuntimeConfig } = getConfig();
-
-    const dirRelativeToPublicFolder = serverRuntimeConfig.PUBLIC_FOLDER;
-    const dir = path.join(
-      serverRuntimeConfig.PROJECT_ROOT || __dirname,
-      "./public",
-      dirRelativeToPublicFolder
-    );
+    const dirRelativeToPublicFolder = "snippets";
+    const dir = path.join(__dirname, "./public", dirRelativeToPublicFolder);
     const filenames = fs.readdirSync(dir);
 
     res.status(200).json({ filenames });
