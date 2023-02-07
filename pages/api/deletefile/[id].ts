@@ -22,11 +22,13 @@ export default function handler(
         throw err;
       }
 
-      fs.unlink(fileDir, (err) =>
-        err
-          ? console.log(err)
-          : console.log(`${fileDir} 를 정상적으로 삭제했습니다`)
-      );
+      fs.unlink(fileDir, (err) => {
+        if (err) {
+          throw err;
+        } else {
+          res.status(200).json("success");
+        }
+      });
     });
 
     res.status(200).json("success");

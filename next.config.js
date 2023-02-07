@@ -58,14 +58,18 @@ const nextConfig = {
       { loader: "@next/font/google", options: { subsets: ["latin"] } },
     ],
   },
-  // async headers() {
-  //   return [
-  //     {
-  //       source: "/(.*)",
-  //       headers: securityHeaders,
-  //     },
-  //   ];
-  // },
+  serverRuntimeConfig: {
+    PROJECT_ROOT: __dirname,
+    PUBLIC_FOLDER: "snippets",
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: securityHeaders,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
