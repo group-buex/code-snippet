@@ -14,9 +14,14 @@ export default function handler(
   try {
     const root = process.env.PROJECT_ROOT as string;
     const dirRelativeToPublicFolder = process.env.PUBLIC_FOLDER as string;
+    const dirRelativeToPublicFolderRoot = process.env
+      .PUBLIC_FOLDER_ROOT as string;
 
-    console.log(";;;", dirRelativeToPublicFolder);
-    const dir = path.resolve("./static", dirRelativeToPublicFolder);
+    console.log(dirRelativeToPublicFolder, dirRelativeToPublicFolderRoot);
+    const dir = path.resolve(
+      dirRelativeToPublicFolderRoot,
+      dirRelativeToPublicFolder
+    );
     const filenames = fs.readdirSync(dir);
 
     // const files = filenames.map((name) =>

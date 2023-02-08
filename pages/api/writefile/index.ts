@@ -13,7 +13,13 @@ export default function handler(
     const { prevFilename, filename, content } = req.body;
 
     const dirRelativeToPublicFolder = process.env.PUBLIC_FOLDER as string;
-    const dir = path.resolve("./static", dirRelativeToPublicFolder);
+    const dirRelativeToPublicFolderRoot = process.env
+      .PUBLIC_FOLDER_ROOT as string;
+
+    const dir = path.resolve(
+      dirRelativeToPublicFolderRoot,
+      dirRelativeToPublicFolder
+    );
 
     const fileDir = `${dir}/${prevFilename}`;
     const newFileDir = `${dir}/${filename}`;
