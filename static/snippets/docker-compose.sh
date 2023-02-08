@@ -3,6 +3,7 @@
 
 set -euf -o pipefail
 
+# 20230208
 DOCKER_COMPOSE_VERSION=v2.1.1
 
 # Download and install
