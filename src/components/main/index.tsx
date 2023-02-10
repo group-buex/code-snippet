@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import FileList from "#/src/components/main/FileList";
 import FileForm from "#/src/components/main/FileForm";
+import NewFileButton from "#/src/components/main/NewFileButton";
 import { useSnippet } from "#/src/store/snippet";
 
 const Main = () => {
@@ -25,7 +26,8 @@ const Main = () => {
   };
 
   return (
-    <div className="flex p-8 w-full h-[100vh]">
+    <div className="flex flex-col p-8 w-full h-[100vh]">
+      <NewFileButton />
       <div className="flex w-full h-full">
         <FileList loading={loading} />
         <FileForm getFileList={getFileList} />

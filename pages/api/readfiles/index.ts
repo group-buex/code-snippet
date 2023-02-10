@@ -17,7 +17,6 @@ export default function handler(
     const dirRelativeToPublicFolderRoot = process.env
       .PUBLIC_FOLDER_ROOT as string;
 
-    console.log(dirRelativeToPublicFolder, dirRelativeToPublicFolderRoot);
     const dir = path.resolve(
       dirRelativeToPublicFolderRoot,
       dirRelativeToPublicFolder

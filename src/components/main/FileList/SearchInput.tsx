@@ -20,7 +20,7 @@ const SearchInput = () => {
     <div className="border-b-2 relative">
       <input
         type="text"
-        className="px-8 py-4 h-12"
+        className="px-8 py-4 h-12 w-full"
         value={searchFilename}
         placeholder="Search Filename..."
         onChange={handleChangeSearchFilename}

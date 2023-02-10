@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { RiDeleteBinLine, RiSave2Line } from "react-icons/ri";
-import { RxReset } from "react-icons/rx";
+import React from "react";
 import { useSnippet } from "#/src/store/snippet";
+import FormButton from "./FormButton";
 type FileFormProps = {
   getFileList: () => void;
 };
 
-const FileForm: React.FC<FileFormProps> = ({ getFileList }) => {
+const FileForm: React.FC<FileFormProps> = () => {
   const { selectedFile, setSelectedFile } = useSnippet((state) => state);
 
   const handleChangeFileData = (
@@ -16,34 +14,6 @@ const FileForm: React.FC<FileFormProps> = ({ getFileList }) => {
     const name = e.target.name;
     const value = e.target.value;
     setSelectedFile({ ...selectedFile, [name]: value });
-  };
-  const handleSaveFile = async () => {
-    const { prevFilename, filename, content } = selectedFile;
-    const response = await axios.post(`/api/writefile`, {
-      prevFilename,
-      filename,
-      content,
-    });
-
-    if (response?.status === 200) {
-      setSelectedFile({ prevFilename: filename, filename, content });
-      getFileList();
-    }
-  };
-
-  const handleDeleteFile = async () => {
-    const response = await axios.delete(
-      `/api/deletefile/${selectedFile?.prevFilename}`
-    );
-
-    if (response?.status === 200) {
-      getFileList();
-      handleResetForm();
-    }
-  };
-
-  const handleResetForm = () => {
-    setSelectedFile({ prevFilename: "", filename: "", content: "" });
   };
 
   return (
@@ -57,17 +27,7 @@ const FileForm: React.FC<FileFormProps> = ({ getFileList }) => {
           value={selectedFile?.filename}
           onChange={handleChangeFileData}
         />
-        <div className="flex justify-between items-center border-l-2">
-          <button className="h-full px-4" onClick={handleResetForm}>
-            <RxReset />
-          </button>
-          <button className="h-full px-4" onClick={handleDeleteFile}>
-            <RiDeleteBinLine />
-          </button>
-          <button className="h-full px-4" onClick={handleSaveFile}>
-            <RiSave2Line />
-          </button>
-        </div>
+        <FormButton />
       </div>
       <textarea
         className="p-4 h-full"

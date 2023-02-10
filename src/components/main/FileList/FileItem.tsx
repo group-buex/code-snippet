@@ -21,8 +21,8 @@ const FileItem: React.FC<FileItemProps> = ({
         className={clsx(
           "text-left py-2 px-4 rounded-md w-full",
           isActive
-            ? "text-sky-500 font-semibold dark:text-sky-400"
-            : "font-medium text-slate-700 hover:text-slate-900 dark:text-slate-400"
+            ? "text-sky-500 font-bold dark:text-sky-400"
+            : "font-medium text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200"
         )}
         onClick={() => onClickFile(filename)}
       >

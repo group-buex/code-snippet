@@ -24,7 +24,6 @@ const FileList: React.FC<FileListProps> = ({ loading }) => {
     }
   };
 
-  console.log(filenameList?.length);
   return (
     <div className="border-2 border-r-0 gap-2 rounded-l-lg min-w-[320px] h-full overflow-y-auto">
       <SearchInput />

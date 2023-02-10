@@ -20,7 +20,7 @@ html {
 }
 
 button:hover {
-  @apply bg-slate-100 transition ease-in;
+  @apply bg-slate-100 transition ease-in dark:bg-gray-300;
 }
 
 input,
