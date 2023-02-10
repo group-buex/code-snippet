@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sudo chmode 666 /var/run/docker.sock
