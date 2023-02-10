@@ -3,7 +3,8 @@
 
 set -euf -o pipefail
 
-VERSION=7.1.1
+# 20230210
+VERSION=7.6
 
 wget https://services.gradle.org/distributions/gradle-${VERSION}-bin.zip -P /tmp
 
