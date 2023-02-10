@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-## INFO: https://docs.docker.com/engine/install/ubuntu/
 
 set -euf -o pipefail
 
