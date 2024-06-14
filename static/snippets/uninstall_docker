@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -e
+
+# Docker와 Docker Compose 모두 제거를 위한 bash 스크립트
+
+echo "Stopping all running Docker containers..."
+sudo docker stop $(sudo docker ps -q) || true
+
+echo "Removing all Docker containers..."
+sudo docker rm $(sudo docker ps -a -q) || true
+
+echo "Removing all Docker images..."
+sudo docker rmi $(sudo docker images -q) || true
+
+echo "Removing Docker Engine and related packages..."
+sudo apt-get purge -y docker-engine docker docker.io docker-ce docker-ce-cli containerd runc
+
+echo "Removing Docker directories..."
+sudo rm -rf /var/lib/docker
+sudo rm -rf /etc/docker
+sudo rm -rf /var/lib/containerd
+
+echo "Removing Docker configuration files..."
+sudo rm -rf /etc/apparmor.d/docker
+sudo groupdel docker
+sudo rm -rf /var/run/docker.sock
+
+echo "Removing Docker Compose..."
+sudo rm -f /usr/local/bin/docker-compose
+
+echo "Cleaning up package information..."
+sudo apt-get autoremove -y
+sudo apt-get autoclean -y
+
+echo "Docker and Docker Compose have been completely removed from your system."
